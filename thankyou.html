@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thank You Amberryjam</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #c2ffd8, #8fd3f4);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        max-width: 420px;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 { color: #2a9d8f; }
+
+    p {
+        font-size: 18px;
+        color: #444;
+        line-height: 1.6;
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        color: rgba(42, 157, 143, 0.6);
+        font-size: 20px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh) scale(1); opacity: 1; }
+        100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Background music continues -->
+<audio autoplay loop>
+    <source src="ill-change-for-you-mitski.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>Thank You, Amberryjam 💖</h1>
+    <p>
+        Thank you for listening to me.<br><br>
+        Your patience and kindness mean everything.<br>
+        I appreciate you more than words can say.<br><br>
+        I’ll change for you.<br>
+        ❤️
+    </p>
+</div>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
