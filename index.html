@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry Ambarii</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ffd6e0, #ff9aa2);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        max-width: 420px;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 { color: #ff4d6d; }
+
+    p {
+        font-size: 18px;
+        color: #444;
+        line-height: 1.6;
+    }
+
+    .nickname {
+        color: #ff4d6d;
+        font-weight: bold;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        background: #ff4d6d;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover { background: #e63956; }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        color: rgba(255, 77, 109, 0.6);
+        font-size: 20px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh) scale(1); opacity: 1; }
+        100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Background music -->
+<audio id="bgMusic" loop>
+    <source src="ill-change-for-you-mitski.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>I'm Sorry, Ambarii 💔</h1>
+    <p>
+        Dear Ambarii,<br><br>
+        I messed up and said something I deeply regret.<br>
+        I'm truly sorry for hurting you.<br><br>
+        You mean a lot to me, <span class="nickname">Amberryjam</span>.<br>
+        I promise to be better and speak with kindness.<br><br>
+        Please forgive me.
+    </p>
+
+    <a href="thankyou.html">
+        <button onclick="playMusic()">Next 💗</button>
+    </a>
+</div>
+
+<script>
+    function playMusic() {
+        document.getElementById("bgMusic").play();
+    }
+
+    // Create floating hearts
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
